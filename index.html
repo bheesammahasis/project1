@@ -45,13 +45,11 @@ Suppose you get to a bad tear you can backtrack to continue the search for a goo
            
        9. E is good Congratulations</p>
 <hr>
-    <border>
     <p>In this example we drew a picture of a tree. The tree is an abstract model of the
        possible sequences of choices we could make There is also a data structure called a 
        tree but usually we don't have a datastructure to tell us what choices we have.
        (if we do have an actual tree data structure, backtracking on sealed depth-fire 
        tree searching)</p>
-      </border >
   <h2>The backtracking algorithm.</h2>
       <pre><font color="blue">
         boolean solve(node n){
@@ -78,8 +76,7 @@ Suppose you get to a bad tear you can backtrack to continue the search for a goo
    <li>if any child of n is solvable, then n is solvable.</li>
 
    <li> if no child of n is solvable, then n is not solvable.</li>
-    </ul>
-<hr>             
+    </ul>            
 
   <P>Hence, to decide whether any non-leaf node n is solvable (part of a path to a
      goal node), all you have to do is test whether any child of n is solvable. This is
@@ -104,7 +101,6 @@ Suppose you get to a bad tear you can backtrack to continue the search for a goo
       else return false
       </font>
       </pre>
-  <hr>
   <p>The backtracking algorithm is simple but important. You should understand it thoroughly.
      Another way of stating it is as follows.</p>
  <h3>To search a tree:</h3>
@@ -176,7 +172,6 @@ Suppose you get to a bad tear you can backtrack to continue the search for a goo
     }
     </font>
   </pre>
-  <hr>
   <h3>keeping backtracking simple</h3>
  <p>all of these  versions of the backtracking algontrim are pretty smole, but when applied to a real 
   problem they can get pretty cured up with deals Even determining whether the node is a leaf can
@@ -218,7 +213,6 @@ Suppose you get to a bad tear you can backtrack to continue the search for a goo
  <p> for starters , lets do the simplest possible example of backtracking, which is searching
    an actual tree.
   we also use the simplest kind of tree, a binary tree.</p>
-  <hr>
   <p>a binary tree is a data structurs composed of nodes.one node is designated as the root node. 
     each node can reference(point to) zero,one or two other nodes, which are called its children . the
     children are referred to as the left child and/or the right child.all nodes are reacheable(by one or
@@ -305,7 +299,7 @@ child exists, and recur only if they do Here's that alternative version:</p>
      return false;
      </font>
      }
-<hr>
+   </pre>
 Think the first version is simpler, but the second version is slightly more efficient.
 <h3>What are the children?</h3>
 <p>One of the things that simplifies the above binary tree search is that, at each choice point, 
@@ -332,7 +326,6 @@ There are two ways to do this:
  <h3>boolean okToColor (int row, int column, int color)</h3>
   <p>Used by method 2 to check, at every node, whether there is an adjacent node already colored with 
       the given color.</p>
-<hr>
   <h3>int[] nextRowAndColumn(int row, int column)</h3>
   used by both methods to find the next "country"(actually, the row and column of the next 
       square on the checkerboard).
@@ -365,7 +358,6 @@ return false
 }
 </font>
    </pre>
-   <hr>
  <p>Those appear pretty similar, and you might think they are equally good. However, the timing 
    information suggests otherwise</p>
   <table border="1" align="center">
@@ -453,7 +445,6 @@ System.out.println(indent + "solvable(" + name(node)+") returns true");
   return false;
 </font>
   </pre>
-  <hr>
   <P>to use the code , we modify solvable as follows:</P>      
    <pre><font color="blue">
  static boolean solvable (Binary Tree node) {
@@ -495,7 +486,6 @@ solvable(B) returns true
  solvable(Root) returns true
 true
    </font>
-<hr>
  <b>Trick #3: Never discard your debugging statements.</b>
 <p>Writing debugging statements is programming, too. Often it's as much work to debug the debugging 
 statements as it is to debug the actual program. Once your program is working, why throw this code 
@@ -567,7 +557,7 @@ static boolean no(binary tree node){
   <table border="1" align="center">
     <tr><td><img src="./projectimg/p3.png"></td>
         <td><img src="./projectimg/p3.png"></td>
-        <td>&nbsp;  &nbsp;  </td>
+        <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
         <td><img src="./projectimg/p2.png"></td>
         <td><img src="./projectimg/p2.png"></td>
         </tr>
@@ -576,7 +566,7 @@ The goal is to reverse the positions of the marbles:
 <table border="1" align="center">
     <tr><td><img src="./projectimg/p2.png"></td>
         <td><img src="./projectimg/p2.png"></td>
-        <td> &nbsp;  &nbsp;</td>
+        <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
         <td><img src="./projectimg/p3.png"></td>
         <td><img src="./projectimg/p3.png"></td>
         </tr>
@@ -584,80 +574,97 @@ The goal is to reverse the positions of the marbles:
   <b>The black marbles can only move to the right, and the white marbles can only move to the left
      (no backing up). At each move, a marble can either:</b>
    <ul>
-  <list>Move one space ahead, if that space is clear, or</list>
-  <list>  Jump ahead over exactly one marble of the opposite color, if the space just beyond that marble
-   is clear.</list>
+  <Move one space ahead, if that space is clear, or
+   Jump ahead over exactly one marble of the opposite color, if the space just beyond that marble
+   is clear.
    </ul>
 
 <p>For example, you could make the following sequence of moves.</p> 
-<table border="1">
-<tr><td><b>starting positions:</b></td>
-    <td><img src="./projectimage/p3.png"></td>
+<table border="1" align="center">
+ <tr>
+    <td><b>starting positions:</b></td>
     <td><img src="./projectimg/p3.png"></td>
-    <td> </td>
+    <td><img src="./projectimg/p3.png"></td>
+    <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
     <td><img src="./projectimg/p2.png"></td>
     <td><img src="./projectimg/p2.png"></td>
     </tr>
-    <tr><td><b>black moves ahead:</b></td>
+</table><br>
+
+<table border="1" align="center">
+      <tr>
+        <th>black moves ahead:</th>
         <td><img src="./projectimg/p3.png"></td>
-        <td> </td>
+        <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
         <td><img src="./projectimg/p3.png"></td>
         <td><img src="./projectimg/p2.png"></td>
         <td><img src="./projectimg/p2.png"></td>
         </tr>
-    <tr><td><b>white jumps:</b></td>
+      </table><br>
+
+      <table border="1" align="center">
+    <tr><th>white jumps:</th>
             <td><img src="./projectimg/p3.png"></td>
             <td><img src="./projectimg/p2.png"></td>
             <td><img src="./projectimg/p3.png"></td>
-            <td> </td>
+            <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
             <td><img src="./projectimg/p2.png"></td>
             </tr>
-    <tr><td><b>black moves ahead:</b></td>
+          </table><br>
+    <table border="1" align="center">
+    <tr><th>black moves ahead:</th>
             <td><img src="./projectimg/p3.png"></td>
              <td><img src="./projectimg/p2.png"></td>
-             <td> </td>
+             <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
              <td><img src="./projectimg/p3.png"></td>
              <td><img src="./projectimg/p2.png"></td>
             </tr>
-     <tr><td><b>black jumps</b></td>
-        <td> </td>
+          </table><br>
+
+    <table border="1" align="center">
+     <tr><th>black jumps:</th>>
+        <td>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
         <td><img src="./projectimg/p2.png"></td>
         <td><img src="./projectimg/p3.png"></td>
         <td><img src="./projectimg/p3.png"></td>
         <td><img src="./projectimg/p2.png"></td>
      </tr>
-    <tr><td><b>white moves ahead</b></td>
-    <td> </td>
+    </table><br>
+
+    <table border="1" align="center">
+    <tr><th>white moves ahead:</th>
+    <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
     <td><img src="./projectimg/p2.png"></td>
     <td><img src="./projectimg/p3.png"></td>
     <td><img src="./projectimg/p3.png"></td>
      <td><img src="./projectimg/p2.png"></td>
      </tr>
     </table>
-stuck!
+  
+<h3 align="center">stuck!</h3>
 <p>The backtracking method is named solvable and returns a boolean. In solvable we shall need to check
    whether we are at a leaf, which in this case means a position from which no further moves are possible. 
-   This isn't so easy.<br>
+   This isn't so easy.
   Now to the program. The main program will initialize the board, and call a recursive backtracking routine
     to attempt to solve the puzzle. The backtracking routine will either succeed and print out a winning path,
-     or it will fail, and the main program will have to print out the bad news.<br>
+     or it will fail, and the main program will have to print out the bad news.
   The backtracking method is named solvable and returns a boolean in solvable we shall need to check
    whether we are at a leaf, which in this case means a position from which no further moves are possible. 
-   This isn't so easy.<br>
+   This isn't so easy.
   Each possible move will result in a new board position, and these new board positions are the children of 
   the current board position. Hence to find the children of a node (that is, of a board position), we need
    only find the possible moves from that node. Remember that it is also highly desirable to find an ordering
-    on these possible moves.<br>
+    on these possible moves.
   Here it is time to stop and take thought. To make progress, we must analyze the game to some extent. Probably
    a number of approaches would work, and what follows is based on the way I worked it out. If you were to
-    program this puzzle, you might find a different but equally valid approach.<br>
+    program this puzzle, you might find a different but equally valid approach.
 
   First, notice that if a marble has a move, that move is unique: if it can move ahead one square, then it cannot
    jump. If it can jump, it cannot move ahead one square. This suggests that, to find the possible moves, we 
    might assign numbers to the marbles, and check each marble in turn. When we have looked at all the marbles,
     we have looked at all the possible moves. This would require having a table to keep track of where each 
     marble is, or else somehow "marking" each marble with its number and searching the board each time to 
-    find the marble we want. Neither alternative is very attractive.<br>
+    find the marble we want. Neither alternative is very attractive.
    Next, notice that for a given board position, each marble occupies a unique space. Hence, instead 
    of talking about moving a particular marble, we can talk about moving the marble in a particular space.<br>
    If a move is possible from a given space, then that must be the only move possible from that space,
