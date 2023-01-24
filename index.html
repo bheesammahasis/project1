@@ -580,59 +580,90 @@ The goal is to reverse the positions of the marbles:
    </ul>
 
 <p>For example, you could make the following sequence of moves.</p> 
-<table border="1" align="center">
+<table  align="center">
  <tr>
     <td><b>starting positions:</b></td>
+    <td>
+    <table border="1">
+      <tr>
     <td><img src="./projectimg/p3.png"></td>
     <td><img src="./projectimg/p3.png"></td>
     <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
     <td><img src="./projectimg/p2.png"></td>
     <td><img src="./projectimg/p2.png"></td>
     </tr>
-</table><br>
-
-<table border="1" align="center">
-      <tr>
-        <th>black moves ahead:</th>
+</table>
+    </td>
+ </tr>
+ <br>
+        <tr>
+        <td><b>black moves ahead:</b></td>
+        <td>
+         <table border="1">
+        <tr>
         <td><img src="./projectimg/p3.png"></td>
         <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
         <td><img src="./projectimg/p3.png"></td>
         <td><img src="./projectimg/p2.png"></td>
         <td><img src="./projectimg/p2.png"></td>
         </tr>
-      </table><br>
-
-      <table border="1" align="center">
-    <tr><th>white jumps:</th>
+      </table>
+        </td>
+      </tr
+      <br>
+       <tr>
+        <td><b>white jumps:</b></td>
+        <td>
+      <table border="1">
+        <tr>
             <td><img src="./projectimg/p3.png"></td>
             <td><img src="./projectimg/p2.png"></td>
             <td><img src="./projectimg/p3.png"></td>
             <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
             <td><img src="./projectimg/p2.png"></td>
             </tr>
-          </table><br>
-    <table border="1" align="center">
-    <tr><th>black moves ahead:</th>
+          </table>
+        </td>
+       </tr>
+       <br>
+
+       <tr>
+        <td><b>black moves ahead:</b></td>
+        <td>
+       <table border="1">
+        <tr>
             <td><img src="./projectimg/p3.png"></td>
              <td><img src="./projectimg/p2.png"></td>
              <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
              <td><img src="./projectimg/p3.png"></td>
              <td><img src="./projectimg/p2.png"></td>
             </tr>
-          </table><br>
+          </table>
+        </td>
+       </tr>
+       <br>
 
-    <table border="1" align="center">
-     <tr><th>black jumps:</th>>
+     <tr>
+      <td><b>black jumps:</b></td>
+      <td>
+    <table border="1">
+      <tr>
         <td>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
         <td><img src="./projectimg/p2.png"></td>
         <td><img src="./projectimg/p3.png"></td>
         <td><img src="./projectimg/p3.png"></td>
         <td><img src="./projectimg/p2.png"></td>
      </tr>
-    </table><br>
+    </table>
+      </td>
+     </tr>
+     <br>
 
-    <table border="1" align="center">
-    <tr><th>white moves ahead:</th>
+     <tr>
+     <td><b>white moves ahead:</b></td>
+     <td>
+    <table border="1">
+     <tr>
     <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
     <td><img src="./projectimg/p2.png"></td>
     <td><img src="./projectimg/p3.png"></td>
@@ -640,8 +671,10 @@ The goal is to reverse the positions of the marbles:
      <td><img src="./projectimg/p2.png"></td>
      </tr>
     </table>
-  
-<h3 align="center">stuck!</h3>
+     </td>
+     </tr>
+  <td><b>stuck!</b></td>
+  <table>
 <p>The backtracking method is named solvable and returns a boolean. In solvable we shall need to check
    whether we are at a leaf, which in this case means a position from which no further moves are possible. 
    This isn't so easy.
@@ -674,17 +707,20 @@ The goal is to reverse the positions of the marbles:
   <b>Now we have a simpler ordering of moves to use in our program. Just check, in order, the 2n+1 spaces of the
      board. For each space, either zero or one moves is possible. With this understanding, we can write a boolean
       method canMove(int[] board, int position) which determines whether a move is possible from the given
-       position:</p>
-<p> 1.If the position is empty, no move is possible
-     2. if the position contains a black marble, the method checks for a move or jump to the right, 
-    3.If the position contains a white marble, the method checks for a move or jump to the left.
+       position:</b></p>
+       <ul>
+ <li> If the position is empty, no move is possible.</li>
+ <li> If the position contains a black marble, the method checks for a move or jump to the right.</li>
+<li>  If the position contains a white marble, the method checks for a move or jump to the left.</li>
+</ul>
 </p>
 <p>We write another method <b> int[] makeMove (int[] oldBoard, int position)</b> will take a board and a position,
   make a move from that position, and return as its value a new board. (We could write this somewhat more 
   efficiently by changing the old board, rather than creating a new one, but here wo are more concerned with
-   simplicity.) In technical jargon, makeMove is "applicative" rather than "mutative".
-Along with <b> canMove and makeMove,</b> we are using methods puzzleSolved and printBoard with meanings that
-should be obvious.
+   simplicity.) In technical jargon, makeMove is "applicative" rather than "mutative".</p>
+
+<p>Along with <b> canMove and makeMove,</b> we are using methods puzzleSolved and printBoard with meanings that
+should be obvious.</p>
 <pre><font color="green">
  boolean solvable(int[] board) (
  if (puzzleSolved(board)) {
@@ -702,10 +738,10 @@ should be obvious.
 }
 </font>
 </pre>
- Along with canMove and makeMove, we are using methods puzzleSolved and printBoard with meanings that should
-     be obvious.
-Here is some output from the program.
- WHITE<ol type="1" reversed="16">
+
+<p>Here is some output from the program.</p>
+
+ <ol type="1" reversed="16">
  <li><b>WHITE WHITE WHITE ____ BLACK BLACK BLACK</b> </li>
  <li><b>WHITE WHITE WHITE BLACK ____ BLACK BLACK</b></li>
  <li><b>WHITE WHITE ____ BLACK WHITE BLACK BLACK</b></li>
